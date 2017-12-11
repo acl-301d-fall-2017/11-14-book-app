@@ -1,5 +1,26 @@
 # User Stories & Feature Tasks
 
+#### LAB 13: Middleware
+
+### Add delete functionality
+1. As a user, I want to be able to click a `delete` button in the detail view of a book.
+1. As a user, I want to be able to delete a single book so that my list is always current.
+    - Add an endpoint for a `DELETE` request to `/api/v1/books/:id`.
+    - After a successful update, a response should be sent back to the user in the form of a 204 status code.
+    - Add a new method called to your `Book` model for deletion. This method will interact with your API through the use of AJAX requests.
+
+### Add update functionality
+1. As a user, I want to be able to click an `update` button in the detail view of a book.
+1. As a user, I want to update a book with a form that's pre-populated with that book's details. 
+1. As a user, I want to be able to update a single book so that my list is accurate and can be modified as needed.
+
+    - Add an endpoint for a `PUT` request to `/api/v1/books/:id`.
+    - After a successful update, a response should be sent back to the user in the form of a 200 status code.
+    - Add a new method called to your `Book` model for updating a single book. This method will interact with your API through the use of AJAX requests.
+1. STRETCH GOAL: reroute your app to the book's detail page after it has been updated.
+
+--- 
+
 #### LAB 12: Client side routing
 
 ### Add more routes to your API
