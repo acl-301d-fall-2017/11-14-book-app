@@ -1,5 +1,35 @@
 # User Stories & Feature Tasks
 
+#### LAB 14: Rest APIs
+
+[Authorize your Google API requests](https://developers.google.com/books/docs/v1/using#auth)
+
+[Performing Search using Google Books API](https://developers.google.com/books/docs/v1/using#PerformingSearch)
+
+### 
+1. As a user, I want to access an external API so that I can incorporate additional information into my app, enhancing its functionality.
+
+2. As a user, I want to use the Google Books API so that I can search for books and add new books to my list.
+    - Install and use `superagent` to make an HTTP GET request to Google's Book API from your server.
+    - Add an endpoint for a `GET` request to `/api/v1/books/find` which will make  a `superagent` request from the client to the Google Books API and return a list of ten books that match the search query.
+    - Map over the array of results to build an array of objects that match the `book` model in your database.
+    - Send the newly constructed array of objects to your client in the response.
+
+3. As a user, I want a search box (text input in a form) and designated space for output so that I can search for books and see the results in a single view.
+    - Add a new View to `index.html` with a class of `search-view` which contains a form for searching the Google Books API by title.
+    - Include a button to click when your want to trigger your search.
+    - Add a new View to `index.html` with a class of `search-results`, which contains a section and unordered list tag.
+    - Your `<ul></ul>` should include an `id` attribute for targeting and insertion of dynamic content.
+
+4. As a user, I want my app to respond when I submit the form so that I can search the Google Books API and receive my results in my app.
+
+    - Add a new client-side route to your `routes.js` file which will listen for `/books/search`, and invoke `bookView.initSearchFormPage`.
+    - Add a new view method to `book-view.js` called `bookView.initSearchFormPage` which will show the search form view and attach an event listener to the form.
+        - The event listener will trigger on `submit`, capturing the form data as an object literal. It will pass the object to `Book.find` as the `book` argument and `bookView.initSearchResultsPage` as the `callback` argument.
+    - Add a new view method to `book-view.js` called `bookView.initSearchResultsPage` which will show the search results view.
+        - This view method will also map over the `Book.all` array and append each of the books from your search using your `toHtml` method created earlier in the week.
+    - Add a new method to Book: `Book.find` that will make a request to your server's `/api/v1/books/find` path, then populate the `Book.all` array with the book objects returned from Google Books API for rendering later.
+
 #### LAB 13: Middleware
 
 ### Add delete functionality
